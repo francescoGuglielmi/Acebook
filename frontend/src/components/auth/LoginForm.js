@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../nav/nav';
+import './LoginForm.css'
 
 const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");

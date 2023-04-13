@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+ *{
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+
+ }
+
+ body{
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(30deg , rgb(238, 147, 82), rgb(128, 0, 111));
+ }
+
+ div h1 {
+  font-size: 22px;
+  font-weight: bolder;
+  padding-top: 5px;
+  padding-bottom: 20px;;
+ }
+
+ .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+ }
+
+ .login-box{
+  background: white;
+  padding: 100px 100px 50px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 400px;
+  font-size: 14px;
+  border-radius: 5px;
+ }
+
+ .login{
+  width: 100%;
+  border: none;
+ }
+
+ .form-group{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+ }
+
+ input[type="text"].form-control, input[type="password"].form-control{
+  font-size: 16px;
+  outline: none;
+  width: calc(100%);
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 12px;
+  transition: all 0.3s ease;
+ }
+
+ input[type="text"].form-control:hover, input[type="password"].form-control:hover{
+  border: 2px solid rgb(205, 70, 117);
+ }
+
+ input[type="text"].form-control:focus, input[type="password"].form-control:focus{
+  border: 2px solid rgb(128, 0, 111);
+ }
+
+ input[type="text"].form-control:active, input[type="password"].form-control:active{
+  border: 2px solid rgb(79, 41, 41);
+ }
+
+ label{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+ }
+
+ label input[type="checkbox"]{
+  width: 20px;
+  height: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+ }
+
+ div input[id='submit'] {
+  outline: none;
+  background: rgb(218, 130, 206);
+  color: white;
+  padding: 12px;
+  display: block;
+  width: 100%;
+  border: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+ }
+
+ div input[id='submit']:hover{
+  box-shadow: 5px 5px 5px rgb(197, 193, 193);
+ }
+
+ a {
+  color: rgb(174, 219, 11); 
+  /* not working currently  */
+ }
+
+ .user-icon { 
+  background: white;
+  border-radius: 50%;
+  width: 100px;
+  height:100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -50px;
+ }
+
+ .user-icon i{
+   font-size: 50px;
+   color: pink;
+ }
+ 
