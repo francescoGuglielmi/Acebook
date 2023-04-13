@@ -13,8 +13,19 @@
   background: linear-gradient(30deg , rgb(238, 147, 82), rgb(128, 0, 111));
  }
 
- div h1 {
+ h2 {
   font-size: 22px;
+  font-weight: bolder;
+ }
+
+ p {
+  font-size: 8px;
+  padding-top: 5px;
+  
+ }
+
+ div h1 {
+  font-size: 16px;
   font-weight: bolder;
   padding-top: 5px;
   padding-bottom: 20px;;
@@ -64,7 +75,6 @@
   padding: 16px;
   transition: all 0.3s ease;
   
-  
  }
 
  input[type="text"].form-control:hover, input[type="password"].form-control:hover{
@@ -77,6 +87,7 @@
 
  input[type="text"].form-control:active, input[type="password"].form-control:active{
   border: 2px solid rgb(79, 41, 41);
+
  }
 
  label{
