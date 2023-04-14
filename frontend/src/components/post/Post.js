@@ -6,6 +6,9 @@ const Post = ({post}) => {
   const [likeCount, setLikeCount] = useState(post.likes.length)
   const [token] = useState(window.localStorage.getItem("token"));
   const [profilePicture] = useState(window.localStorage.getItem("profilePicture"));
+  const date = new Date()
+  const dateFormatted = `${date.getHours()}:${date.getMinutes()} on ${date.getDate()}/${date.getMonth() + 1}`
+  const [createdAt] = useState(dateFormatted)
 
   //fetch request to get user model data
   //access the username property
@@ -91,10 +94,15 @@ const Post = ({post}) => {
   const renderComments = () => {  // the styling of the div below might be better applied inside Post.css
     return (
       <>
-        {post.comments.map( comment => (           
-          <div style={{border: 'solid', width: 300, margin: 10, padding: 10, borderWidth: 1}}> 
-            {comment}
-          </div>
+        {post.comments.map( comment => (   
+          <>        
+            <div style={{border: 'solid', width: 300, margin: 10, padding: 10, borderWidth: 1}}> 
+              <div>User said:</div>
+              {comment}
+              <div>{createdAt}</div>
+            </div>
+            
+          </>
         ))}
       </>
     )
@@ -110,6 +118,7 @@ const Post = ({post}) => {
         <article data-cy="post" key={ post._id }>{ post.message }</article>
         <button onClick={handleLike}>Like</button>
         <div>{likeCount}</div>
+        <div>{post.createdAt}</div>
       </div>
       <div>{renderComments()}</div>
       <div>{renderCommentForm()}</div>

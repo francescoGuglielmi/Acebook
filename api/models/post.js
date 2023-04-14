@@ -13,7 +13,8 @@ const PostSchema = new mongoose.Schema({
   comments: {
     type: Array,
     default: []
-  }
+  },
+  createdAt: String
 });
 
 const Post = mongoose.model("Post", PostSchema);
