@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../nav/nav';
+import './LoginForm.css';
 
 const LogInForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
@@ -38,17 +39,49 @@ const LogInForm = ({ navigate }) => {
   }
 
 
-    return (
-      <>
-      <Navbar/>
-      <h2>Log in</h2>
-      <form onSubmit={handleSubmit}>
-        <input placeholder='Email' id="email" type='text' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange} />
-        <input placeholder='Password' id="password" type='password'  value={ password } onChange={handlePasswordChange} />
-        <input role='submit-button' id='submit' type="submit" value="Log in!" />
-      </form>
-      </>
-    );
+
+return (
+
+  <> 
+  <Navbar/>
+
+  <body>
+    <div class="container">
+      <div class="login-box">
+        <div class="header">
+          <h1>Login</h1>
+        </div>
+        <div class="user-icon">
+          <i class="fa-solid fa-earth-americas"></i>
+        </div>
+        <form class="login" onSubmit={handleSubmit}>
+          <div class="form-group">
+            <input type='text' placeholder='Email' id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange} class="form-control"></input>
+          </div>
+          <div class="form-group">
+            <input class="form-control" placeholder='Password' id="password" type='password'  value={ password } onChange={handlePasswordChange}/>
+          </div>
+          <div class="form-group">
+            <label for="rememberme">
+              <input type="checkbox" name="rememberme" id="rememberme"/>
+              Remember Me
+            </label>
+          </div>
+          <div class="form-group">
+            <input role='submit-button' id='submit' type="submit" value="Submit"/>
+          </div> 
+          <div class="form-group">
+            <p>Not registered? <a href ="signup">Sign Up</a></p>
+          </div>
+         </form>
+        
+      </div>
+    </div>
+  </body>
+  </>
+  
+  
+);
 }
 
 export default LogInForm;

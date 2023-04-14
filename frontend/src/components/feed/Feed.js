@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../post/Post'
+import './Feed.css';
 
 import Mainnav from '../nav/mainNav';
 //import PostForm from '../post/PostForm'
@@ -93,10 +94,14 @@ const Feed = ({ navigate }) => {
   // RENDER CREATE POST FORM -----------------
   const renderPostForm = () => {
     return (
+
+    <div class="feed-container">
       <form onSubmit={handlePostSubmit}>
         <input type="text" name="message" value={message} onChange={handleMessageChange}/>
         <button type="submit">Post</button>
       </form>
+    </div>
+      
     )
   }
   
@@ -104,14 +109,17 @@ const Feed = ({ navigate }) => {
       return(
         <>
           <Mainnav/>
-          <button onClick={logout}>Logout</button>
-          {renderPostForm()}
-          {renderPosts()}
+          <div class="feed-container">
+            <h1>What's on your mind?</h1>
+            {renderPostForm()}
+            {renderPosts()}
+          </div>
         </>
       )
     } else {
       navigate('/login')
     }
+  
 }
 
 export default Feed;

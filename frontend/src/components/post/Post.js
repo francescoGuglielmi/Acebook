@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import './Post.css';
 
 const Post = ({post}) => {
 
@@ -76,11 +77,15 @@ const Post = ({post}) => {
 
   function renderCommentForm() {
     return (
-      <div>
-        <form onSubmit={handleCommentSubmit}>
-          <input type="text" value={content} onChange={handleCommentChange}></input>
-          <button type="submit">Add Comment</button>
-        </form>
+
+      
+      <div class="container">
+        <div class="form-group">
+          <form onSubmit={handleCommentSubmit}>
+            <input type="text" value={content} onChange={handleCommentChange}></input>
+            <button class="submit-button" type="submit">Add Comment</button>
+          </form>
+        </div> 
       </div>
     )
   }
@@ -107,12 +112,13 @@ const Post = ({post}) => {
 
   return (            // the styling of the div below might be better applied inside Post.css
     <>
-    <div>
-      <div style={{border: 'solid', width: 300, marginBottom: 10, padding: 5, borderWidth: 1}}> 
+
+    <div class="outer-box">
+      <div class="comment-box" style={{border: 'solid', width: 300, marginBottom: 10, padding: 5, borderWidth: 1}}> 
         <img src={post.profilePicture} width="80" alt="profile picture"/>
         <article>{post.author}</article>
         <article data-cy="post" key={ post._id }>{ post.message }</article>
-        <button onClick={handleLike}>Like</button>
+        <button class="like-button" onClick={handleLike}>Like</button>
         <div>{likeCount}</div>
         <div>{post.createdAt}</div>
       </div>
