@@ -49,24 +49,21 @@ const SignUpForm = ({ navigate }) => {
         
           <div class="signup-box">
           <h2>SIGN UP </h2>
-          
-      
-      
             <div class="header">
-            <h1>Welcome, Earthling!</h1>
+              <h1>Welcome, Earthling!</h1>
             </div>
             <div class="user-icon">
-            <i class="fa-solid fa-earth-americas"></i>
+              <i class="fa-solid fa-earth-americas"></i>
             </div>
               <form class="signup" onSubmit={handleSubmit}>
                 <div class="form-group">
-                  <input placeholder="username" id="username" type="text" value={username} onChange={handleUsernameChange}></input>
+                  <input placeholder="username" id="username" type="text" value={username} onChange={handleUsernameChange} class="form-control"></input>
                 </div>
                 <div class="form-group">
-                  <input placeholder="email" id="email" type='text' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange} />
+                  <input placeholder="email" id="email" type='text' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange}class="form-control"/>
                 </div>
                 <div class="form-group">
-                  <input placeholder="password" id="password" type='password' pattern="[a-zA-Z0-9.-_!?]{8,20}" value={ password } onChange={handlePasswordChange} />
+                  <input placeholder="password" id="password" type='password' pattern="[a-zA-Z0-9.-_!?]{8,20}" value={ password } onChange={handlePasswordChange} class="form-control"/>
                   <p>minimum 8 characters</p>
                 </div>
             
@@ -74,7 +71,7 @@ const SignUpForm = ({ navigate }) => {
                   <input id='submit' type="submit" value="Submit" />
                 </div>
                 <div class="form-group">
-                  <p>Already registered? <a href ="login">Login</a></p>
+                  <p class="already-registered">Already registered? <a href ="login">Login</a></p>
                 </div>
               </form>
             </div>
