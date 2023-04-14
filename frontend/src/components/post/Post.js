@@ -10,11 +10,7 @@ const Post = ({post}) => {
   const dateFormatted = `${date.getHours()}:${date.getMinutes()} on ${date.getDate()}/${date.getMonth() + 1}`
   const [createdAt] = useState(dateFormatted)
 
-  //fetch request to get user model data
-  //access the username property
-  //add it to a JSX HTML element in the post return
 
-  //add 
 
   // Likes
 
@@ -113,7 +109,7 @@ const Post = ({post}) => {
     <>
     <div>
       <div style={{border: 'solid', width: 300, marginBottom: 10, padding: 5, borderWidth: 1}}> 
-        <img src={process.env.PUBLIC_URL + profilePicture} width="80" alt="profile picture"/>
+        <img src={post.profilePicture} width="80" alt="profile picture"/>
         <article>{post.author}</article>
         <article data-cy="post" key={ post._id }>{ post.message }</article>
         <button onClick={handleLike}>Like</button>

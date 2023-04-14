@@ -16,6 +16,7 @@ const Feed = ({ navigate }) => {
   const [createdAt] = useState(dateFormatted)
 
 
+
   useEffect(() => {
     if(token) {
       fetch("/posts", {
@@ -65,10 +66,6 @@ const Feed = ({ navigate }) => {
       .catch((error) => console.error(error));
   };
 
-  // handleLikeButton ??
-    // stringify (likes)
-    //setLikes(post.likes + 1)
-    //reload
 
   // LOGOUT --------------------------------
   const logout = () => {
@@ -92,6 +89,7 @@ const Feed = ({ navigate }) => {
     )
   }
 
+  
   // RENDER CREATE POST FORM -----------------
   const renderPostForm = () => {
     return (

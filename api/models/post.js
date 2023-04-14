@@ -14,7 +14,14 @@ const PostSchema = new mongoose.Schema({
     type: Array,
     default: []
   },
+
+  profilePicture: { 
+    type: String, 
+    default: 'default.jpg'
+  },
+
   createdAt: String
+
 });
 
 const Post = mongoose.model("Post", PostSchema);
