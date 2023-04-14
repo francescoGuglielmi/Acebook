@@ -1,24 +1,38 @@
 # Acebook
 
-In this project, you are tasked with working on an existing application. A significant part of the challenge will be to familiarise yourself with the codebase you've inherited, as you work to **improve and extend** it.
+Acebook is a web application developed using the MERN stack that endeavors to emulate some of the primary characteristics and capabilities of the renowned social networking site, Facebook. Its objective is to offer users a platform where they can interact with their friends, share posts and photos, and respond to other users' content, among other things, in the same way as Facebook.
+The project was created by a team of six developers who collaborated efficiently and to produce quality code on schedule, utilising Agile methodologies and a Git workflow.
 
 Link to Trello Board - https://trello.com/b/JFnRqonB/acebook-team-earth
 
-## Videos
+## The Team
 
-These videos complement the docs below.
+During this 2-week project, we decided to put a focus on learning to get to grips with the MERN stack, and we also prioritised creating and maintaining a positive and safe atmosphere to work in.
 
-* [An overview of the app](https://youtu.be/meTABGgrO2c)
-* [The backend (api)](https://youtu.be/mFczOzWW3vo)
-* [Postman](https://youtu.be/VO_kinuJngA)
+Team Members:
+Josh Neuwford - https://github.com/J-Neuwford
+Leah Massey - https://github.com/leah-massey
+Adnan Mann - https://github.com/AMANN23
+Francesco Guglielmi - https://github.com/francescoGuglielmi
+Destin Cleo Kouamba - https://github.com/Destinek
+Kassandra Kalejaye - https://github.com/Kassandra25-max
 
-## Existing Features
+## Features
 
-It's already possible for a user to:
+It's possible for a user to:
 - Sign up
 - Sign in
 - Sign out
 - View a list of posts
+- Add profile picture
+- Add posts to the feed
+- Comment on posts
+- Like posts
+
+Next Steps:
+- Images as posts
+- Update user details
+- Deployment
 
 ## Technologies
 
@@ -44,6 +58,9 @@ We also used...
 - [Handlebars](https://handlebarsjs.com/) for the `home` template.
 - [ESLint](https://eslint.org) for linting.
 - [Nodemon](https://nodemon.io/) to reload the server automatically.
+
+We also made use of Multer to upload images. This was suitable for the scope of this project, but we feel that another options could be explored to make this more scalable in future projects. 
+
 
 ## Architecture
 
@@ -236,15 +253,6 @@ After logging in, you won't see much but you can create posts using PostMan and 
   ; cd frontend
   ; JWT_SECRET=SUPER_SECRET npm run test
   ```
-
-## MongoDB Connection Errors?
-
-Some people occasionally experience MongoDB connection errors when running the tests or trying to use the application. Here are some tips which might help resolve such issues.
-
-- Check that MongoDB is installed using `mongo --version`
-- Check that it's running using `brew services list`
-
-If you have issues that are not resolved by these tips, please reach out to a coach and, once the issue is resolved, we can add a new tip!
 
 
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
