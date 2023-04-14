@@ -7,12 +7,11 @@ const Post = ({post}) => {
   const [likeCount, setLikeCount] = useState(post.likes.length)
   const [token] = useState(window.localStorage.getItem("token"));
   const [profilePicture] = useState(window.localStorage.getItem("profilePicture"));
+  const date = new Date()
+  const dateFormatted = `${date.getHours()}:${date.getMinutes()} on ${date.getDate()}/${date.getMonth() + 1}`
+  const [createdAt] = useState(dateFormatted)
 
-  //fetch request to get user model data
-  //access the username property
-  //add it to a JSX HTML element in the post return
 
-  //add 
 
   // Likes
 
@@ -96,10 +95,15 @@ const Post = ({post}) => {
   const renderComments = () => {  // the styling of the div below might be better applied inside Post.css
     return (
       <>
-        {post.comments.map( comment => (           
-          <div style={{border: 'solid', width: 300, margin: 10, padding: 10, borderWidth: 1}}> 
-            {comment}
-          </div>
+        {post.comments.map( comment => (   
+          <>        
+            <div style={{border: 'solid', width: 300, margin: 10, padding: 10, borderWidth: 1}}> 
+              <div>User said:</div>
+              {comment}
+              <div>{createdAt}</div>
+            </div>
+            
+          </>
         ))}
       </>
     )
@@ -108,13 +112,15 @@ const Post = ({post}) => {
 
   return (            // the styling of the div below might be better applied inside Post.css
     <>
+
     <div class="outer-box">
       <div class="comment-box" style={{border: 'solid', width: 300, marginBottom: 10, padding: 5, borderWidth: 1}}> 
-        <img src={process.env.PUBLIC_URL + profilePicture} width="80" alt="profile picture"/>
+        <img src={post.profilePicture} width="80" alt="profile picture"/>
         <article>{post.author}</article>
         <article data-cy="post" key={ post._id }>{ post.message }</article>
         <button class="like-button" onClick={handleLike}>Like</button>
         <div>{likeCount}</div>
+        <div>{post.createdAt}</div>
       </div>
       <div>{renderComments()}</div>
       <div>{renderCommentForm()}</div>

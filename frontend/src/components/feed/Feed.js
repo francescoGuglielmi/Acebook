@@ -12,6 +12,11 @@ const Feed = ({ navigate }) => {
   const [message, setMessage] = useState("")
   const [author] = useState(window.localStorage.getItem("username"));
   const [profilePicture] = useState(window.localStorage.getItem("profilePicture"));
+  const date = new Date()
+  const dateFormatted = `${date.getHours()}:${date.getMinutes()} on ${date.getDate()}/${date.getMonth() + 1}`
+  const [createdAt] = useState(dateFormatted)
+
+
 
   useEffect(() => {
     if(token) {
@@ -48,7 +53,7 @@ const Feed = ({ navigate }) => {
         'content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({message, author, profilePicture})
+      body: JSON.stringify({message, author, profilePicture, createdAt })
     })
       .then((response) => response.json())
       .then((data) => {
@@ -62,10 +67,6 @@ const Feed = ({ navigate }) => {
       .catch((error) => console.error(error));
   };
 
-  // handleLikeButton ??
-    // stringify (likes)
-    //setLikes(post.likes + 1)
-    //reload
 
   // LOGOUT --------------------------------
   const logout = () => {
@@ -89,6 +90,7 @@ const Feed = ({ navigate }) => {
     )
   }
 
+  
   // RENDER CREATE POST FORM -----------------
   const renderPostForm = () => {
     return (

@@ -8,6 +8,8 @@ const SignUpForm = ({ navigate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [file, setFile] = useState('f6782410420a17e3de48d22412adfd0c.jpg'); 
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -16,7 +18,12 @@ const SignUpForm = ({ navigate }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username: username, email: email, password: password })
+      body: JSON.stringify({ 
+        username: username, 
+        email: email, 
+        password: password,
+        profilePicture: file
+       })
     })
       .then(response => {
         if(response.status === 201) {
@@ -39,10 +46,46 @@ const SignUpForm = ({ navigate }) => {
     setPassword(event.target.value)
   }
 
+  const handleImageChange = (event) => {
+    setFile(event.target.files[0]);
+  }
+
+  const handleImageUpload = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('profilePicture', file)
+    
+
+    try {
+      const response = await fetch('users/upload-image', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await response.json();
+      console.log(data.filename + '.jpg');
+      setFile(data.filename)
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const renderImageUploadForm = () => {
+    return (
+      <>
+        <h3>Upload a profile image:</h3>
+        <form onSubmit={handleImageUpload} encType="multipart/form-data">
+          <input type="file" name="image" onChange={handleImageChange}/>
+          <input type="submit" name="upload"/>
+        </form>
+      </>
+    )
+  }
 
     return (
       <>
       <Navbar/>
+
       <body>
       
         <div class="container">
@@ -76,12 +119,10 @@ const SignUpForm = ({ navigate }) => {
               </form>
             </div>
             <div class="separator">
-
             </div>
-            
-          
         </div>
       </body>
+      {renderImageUploadForm()}
       </>
     );
 }
