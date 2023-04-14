@@ -82,7 +82,7 @@ const Post = ({post}) => {
       <div class="container">
         <div class="form-group">
           <form onSubmit={handleCommentSubmit}>
-            <input type="text" value={content} onChange={handleCommentChange}></input>
+            <input class="comment-input" type="text" value={content} onChange={handleCommentChange}></input>
             <button class="submit-button" type="submit">Add Comment</button>
           </form>
         </div> 
@@ -115,11 +115,11 @@ const Post = ({post}) => {
 
     <div class="outer-box">
       <div class="comment-box" style={{border: 'solid', width: 300, marginBottom: 10, padding: 5, borderWidth: 1}}> 
-        <img src={post.profilePicture} width="80" alt="profile picture"/>
-        <article>{post.author}</article>
+        <img class="profile-image" src={post.profilePicture} width="50" alt="profile picture"/>
+        <article class="username">{post.author}</article>
         <article data-cy="post" key={ post._id }>{ post.message }</article>
-        <button class="like-button" onClick={handleLike}>Like</button>
-        <div>{likeCount}</div>
+        <button class="like-button" onClick={handleLike}>Like<span><div>{likeCount}</div></span></button>
+        
         <div>{post.createdAt}</div>
       </div>
       <div>{renderComments()}</div>

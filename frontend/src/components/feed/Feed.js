@@ -81,7 +81,7 @@ const Feed = ({ navigate }) => {
         {
           posts.map(                              // the styling of the div below might be better applied inside Feed.css
           (post) => (                            
-            <div style={{border: 'solid', width: 500, margin: 10, padding: 10}}>
+            <div class="outer-box">
               <Post post={post} key={ post._id } />
             </div> 
           ))
