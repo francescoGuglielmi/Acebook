@@ -73,11 +73,19 @@ const SignUpForm = ({ navigate }) => {
   const renderImageUploadForm = () => {
     return (
       <>
-        <h3>Upload a profile image:</h3>
-        <form onSubmit={handleImageUpload} encType="multipart/form-data">
-          <input type="file" name="image" onChange={handleImageChange}/>
-          <input type="submit" name="upload"/>
+      <div class="profile-photo">
+        <div class="image-form">
+          <p class="profile-words">Upload a profile image: </p>
+        </div>
+        <div class="image-form">
+          <form onSubmit={handleImageUpload} encType="multipart/form-data">
+        <div class="image-form">
+          <input class="button" type="file" name="image" onChange={handleImageChange}/>
+        </div>
+          <input class="upload-button" type="submit" name="upload" value="Upload Image"/>
         </form>
+        </div> 
+      </div>
       </>
     )
   }
@@ -109,7 +117,8 @@ const SignUpForm = ({ navigate }) => {
                   <input placeholder="password" id="password" type='password' pattern="[a-zA-Z0-9.-_!?]{8,20}" value={ password } onChange={handlePasswordChange} class="form-control"/>
                   <p>minimum 8 characters</p>
                 </div>
-            
+                {renderImageUploadForm()}
+                
                 <div class="form-group">
                   <input id='submit' type="submit" value="Submit" />
                 </div>
@@ -122,7 +131,7 @@ const SignUpForm = ({ navigate }) => {
             </div>
         </div>
       </body>
-      {renderImageUploadForm()}
+      
       </>
     );
 }
