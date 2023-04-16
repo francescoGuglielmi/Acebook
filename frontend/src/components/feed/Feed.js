@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../post/Post'
 import './Feed.css';
-
 import Mainnav from '../nav/mainNav';
 //import PostForm from '../post/PostForm'
 
 
 const Feed = ({ navigate }) => {
+
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [message, setMessage] = useState("")
@@ -16,13 +16,10 @@ const Feed = ({ navigate }) => {
   const dateFormatted = `${date.getHours()}:${date.getMinutes()} on ${date.getDate()}/${date.getMonth() + 1}`
   const [createdAt] = useState(dateFormatted)
 
-
-
   useEffect(() => {
     if(token) {
       fetch("/posts", {
         headers: {
-
           //makes sure a vaild token is present
           'Authorization': `Bearer ${token}`
         }
@@ -81,7 +78,7 @@ const Feed = ({ navigate }) => {
         {
           posts.map(                              // the styling of the div below might be better applied inside Feed.css
           (post) => (                            
-            <div class="outer-box">
+            <div className="outer-box">
               <Post post={post} key={ post._id } />
             </div> 
           ))
@@ -95,7 +92,7 @@ const Feed = ({ navigate }) => {
   const renderPostForm = () => {
     return (
 
-    <div class="feed-container">
+    <div className="feed-container">
       <form onSubmit={handlePostSubmit}>
         <input type="text" name="message" value={message} onChange={handleMessageChange}/>
         <button type="submit">Post</button>
@@ -109,7 +106,7 @@ const Feed = ({ navigate }) => {
       return(
         <>
           <Mainnav/>
-          <div class="feed-container">
+          <div className="feed-container">
             <h1>What's on your mind?</h1>
             {renderPostForm()}
             {renderPosts()}

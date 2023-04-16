@@ -11,8 +11,6 @@ const Post = ({post}) => {
   const dateFormatted = `${date.getHours()}:${date.getMinutes()} on ${date.getDate()}/${date.getMonth() + 1}`
   const [createdAt] = useState(dateFormatted)
 
-
-
   // Likes
 
   const handleLike = async (event) => {
@@ -79,11 +77,11 @@ const Post = ({post}) => {
     return (
 
       
-      <div class="container">
-        <div class="form-group">
+      <div className="container">
+        <div className="form-group">
           <form onSubmit={handleCommentSubmit}>
-            <input class="comment-input" type="text" value={content} onChange={handleCommentChange}></input>
-            <button class="submit-button" type="submit">Add Comment</button>
+            <input className="comment-input" type="text" value={content} onChange={handleCommentChange} />
+            <button className="submit-button" type="submit">Add Comment</button>
           </form>
         </div> 
       </div>
@@ -113,13 +111,12 @@ const Post = ({post}) => {
   return (            // the styling of the div below might be better applied inside Post.css
     <>
 
-    <div class="outer-box">
-      <div class="comment-box" style={{border: 'solid', width: 300, marginBottom: 10, padding: 5, borderWidth: 1}}> 
-        <img class="profile-image" src={post.profilePicture} width="50" alt="profile picture"/>
-        <article class="username">{post.author}</article>
+    <div className="outer-box">
+      <div className="comment-box" style={{border: 'solid', width: 300, marginBottom: 10, padding: 5, borderWidth: 1}}> 
+        <img className="profile-image" src={post.profilePicture} width="50" alt="profile pic"/>
+        <article className="username">{post.author}</article>
         <article data-cy="post" key={ post._id }>{ post.message }</article>
-        <button class="like-button" onClick={handleLike}>Like<span><div>{likeCount}</div></span></button>
-        
+        <button className="like-button" onClick={handleLike}>Like<span><div>{likeCount}</div></span></button>
         <div>{post.createdAt}</div>
       </div>
       <div>{renderComments()}</div>

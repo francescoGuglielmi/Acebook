@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../nav/nav';
+import Navbar from '../nav/Nav';
 import './LoginForm.css';
 
 const LogInForm = ({ navigate }) => {
@@ -38,46 +38,48 @@ const LogInForm = ({ navigate }) => {
     setPassword(event.target.value)
   }
 
-
-
 return (
 
   <> 
-  <Navbar/>
+    <Navbar/>
 
-  <body>
-    <div class="container">
-      <div class="login-box">
-        <div class="header">
-          <h1>Login</h1>
+    <div className="main-container">
+      <div className="container_1">
+        <div className="login-box">  
+          <div className="header">
+            <h1>Login</h1>
+          </div>
+
+          <div className="user-icon"> 
+            <i className="fa-solid fa-earth-americas"></i>
+          </div>
+
+          {/* LOGIN FORM  */}
+
+          <form className="login" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <input type='text' placeholder='Email' id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange} className="form-control"></input>
+            </div>
+
+            <div className="form-group">
+              <input className="form-control" placeholder='Password' id="password" type='password'  value={ password } onChange={handlePasswordChange}/>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="rememberme"> <input type="checkbox" name="rememberme" id="rememberme"/>Remember Me</label>
+            </div>
+
+            <div className="form-group">
+              <input id='submit' type="submit" value="Submit"/>
+            </div> 
+
+            <div className="form-group">
+              <p>Not registered? <a href ="signup">Sign Up</a></p>
+            </div>
+          </form>
         </div>
-        <div class="user-icon">
-          <i class="fa-solid fa-earth-americas"></i>
-        </div>
-        <form class="login" onSubmit={handleSubmit}>
-          <div class="form-group">
-            <input type='text' placeholder='Email' id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange} class="form-control"></input>
-          </div>
-          <div class="form-group">
-            <input class="form-control" placeholder='Password' id="password" type='password'  value={ password } onChange={handlePasswordChange}/>
-          </div>
-          <div class="form-group">
-            <label for="rememberme">
-              <input type="checkbox" name="rememberme" id="rememberme"/>
-              Remember Me
-            </label>
-          </div>
-          <div class="form-group">
-            <input role='submit-button' id='submit' type="submit" value="Submit"/>
-          </div> 
-          <div class="form-group">
-            <p>Not registered? <a href ="signup">Sign Up</a></p>
-          </div>
-         </form>
-        
       </div>
     </div>
-  </body>
   </>
   
   

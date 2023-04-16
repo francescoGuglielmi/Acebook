@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../nav/nav';
+import Navbar from '../nav/Nav';
 import './SignUpForm.css';
 
 const SignUpForm = ({ navigate }) => {
@@ -7,7 +7,6 @@ const SignUpForm = ({ navigate }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [file, setFile] = useState('f6782410420a17e3de48d22412adfd0c.jpg'); 
 
   const handleSubmit = (event) => {
@@ -25,13 +24,13 @@ const SignUpForm = ({ navigate }) => {
         profilePicture: file
        })
     })
-      .then(response => {
-        if(response.status === 201) {
-          navigate('/login')
-        } else {
-          navigate('/signup')
-        }
-      })
+    .then(response => {
+      if (response.status === 201) {
+        navigate('/login')
+      } else {
+        navigate('/signup')
+      }
+    })
   }
 
   const handleUsernameChange = (event ) => {
@@ -70,70 +69,74 @@ const SignUpForm = ({ navigate }) => {
     }
   }
 
+  // RENDERED COMPONENTS
+
   const renderImageUploadForm = () => {
     return (
       <>
-      <div class="profile-photo">
-        <div class="image-form">
-          <p class="profile-words">Upload a profile image: </p>
-        </div>
-        <div class="image-form">
+        <div className="profile-photo">
+          <p className="profile-words">Upload a profile image: </p>
+        
           <form onSubmit={handleImageUpload} encType="multipart/form-data">
-        <div class="image-form">
-          <input class="button" type="file" name="image" onChange={handleImageChange}/>
+            <input className="button" type="file" name="image" onChange={handleImageChange}/>
+            <input className="upload-button" type="submit" name="upload" value="Upload Image"/>
+          </form>
         </div>
-          <input class="upload-button" type="submit" name="upload" value="Upload Image"/>
-        </form>
-        </div> 
-      </div>
       </>
     )
   }
 
-    return (
-      <>
+  return (
+    <>
       <Navbar/>
+      <div className="main-container">
+        <div className="container_1">
+          <div className="signup-box">
+            <h2>SIGN UP </h2>
 
-      <body>
-      
-        <div class="container">
-        
-          <div class="signup-box">
-          <h2>SIGN UP </h2>
-            <div class="header">
+            <div className="header">
               <h1>Welcome, Earthling!</h1>
             </div>
-            <div class="user-icon">
-              <i class="fa-solid fa-earth-americas"></i>
+
+            {/* LOGO */}
+
+            <div className="user-icon">
+              <div>&spades;</div>
             </div>
-              <form class="signup" onSubmit={handleSubmit}>
-                <div class="form-group">
-                  <input placeholder="username" id="username" type="text" value={username} onChange={handleUsernameChange} class="form-control"></input>
-                </div>
-                <div class="form-group">
-                  <input placeholder="email" id="email" type='text' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange}class="form-control"/>
-                </div>
-                <div class="form-group">
-                  <input placeholder="password" id="password" type='password' pattern="[a-zA-Z0-9.-_!?]{8,20}" value={ password } onChange={handlePasswordChange} class="form-control"/>
-                  <p>minimum 8 characters</p>
-                </div>
-                {renderImageUploadForm()}
-                
-                <div class="form-group">
-                  <input id='submit' type="submit" value="Submit" />
-                </div>
-                <div class="form-group">
-                  <p class="already-registered">Already registered? <a href ="login">Login</a></p>
-                </div>
-              </form>
-            </div>
-            <div class="separator">
-            </div>
+          
+            {/* SIGN UP FORM BOX */}
+
+            <form className="signup" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <input className="form-control" placeholder="username" id="username" type="text" value={username} onChange={handleUsernameChange} />
+              </div>
+
+              <div className="form-group">
+                <input className="form-control" placeholder="email" id="email" type='text' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange} />
+              </div>
+
+              <div className="form-group">
+                <input className="form-control" placeholder="password" id="password" type='password' pattern="[a-zA-Z0-9.-_!?]{8,20}" value={ password } onChange={handlePasswordChange} />
+                <p>minimum 8 characters</p>
+              </div>
+
+              <div className="form-group">
+                <input id='submit' type="submit" value="Submit" />
+              </div>
+
+              <div className="form-group">
+                <p className="already-registered">Already registered? <a href ="login">Login</a></p>
+              </div>
+            </form>
+
+            {renderImageUploadForm()}
+
+          </div>
+          <div className="separator"></div>
         </div>
-      </body>
-      
-      </>
-    );
+      </div>
+    </>
+  );
 }
 
 export default SignUpForm;

@@ -1,3 +1,5 @@
+import "./Nav.css"
+
 const Mainnav = () => {
   return (
   <nav className="nav">
@@ -7,7 +9,6 @@ const Mainnav = () => {
         <a href='/'>Logout</a>  
       </li>    
     </ul>
-
   </nav>
   )
 }
