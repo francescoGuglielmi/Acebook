@@ -111,16 +111,16 @@ const SignUpForm = ({ navigate }) => {
 
             <form className="signup" onSubmit={handleSubmit}>
               <div className="form-group">
-                <input className="form-control" placeholder="username" id="username" type="text" value={username} onChange={handleUsernameChange} />
+                <input className="form-control" placeholder="Username" id="username" type="text" value={username} onChange={handleUsernameChange} />
               </div>
 
               <div className="form-group">
-                <input className="form-control" placeholder="email" id="email" type='text' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange} />
+                <input className="form-control" placeholder="Email" id="email" type='text' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value={ email } onChange={handleEmailChange} />
               </div>
 
               <div className="form-group">
-                <input className="form-control" placeholder="password" id="password" type='password' pattern="[a-zA-Z0-9.-_!?]{8,20}" value={ password } onChange={handlePasswordChange} />
-                <p>minimum 8 characters</p>
+                <input className="form-control" placeholder="Password" id="password" type='password' pattern="[a-zA-Z0-9.-_!?]{8,20}" value={ password } onChange={handlePasswordChange} />
+                <p>Minimum 8 characters</p>
               </div>
 
               <div className="form-group">

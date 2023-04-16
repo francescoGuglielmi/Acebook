@@ -1,9 +1,12 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Herr+Von+Muellerhoff&display=swap');
+
+* {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  font-weight: bold;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,17 +14,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .ace-book {
-  font-size: 2rem;
+  font-size: 21px;
+  font-family: Cairo, monospace;
 }
 
 .nav {
-  background-color: hotpink;
-  color: antiquewhite;
+  background-color: rgb(55, 1, 108);
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   padding:0 2rem;
-  
 }
 
 .nav ul {
@@ -43,14 +46,11 @@ body {
 
 .nav li.active {
   background-color:rgb(21, 65, 103);
- 
 }
 
-.nav li:hover {
-  color:rgb(71, 54, 28);
-  
+.nav li a:hover {
+  color: yellow;
 }
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

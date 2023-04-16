@@ -90,7 +90,6 @@
   padding: 12px;
   transition: all 0.1s ease;
   box-sizing: border-box;
-  
  }
 
  input[type="text"].form-control:hover, input[type="password"].form-control:hover {
