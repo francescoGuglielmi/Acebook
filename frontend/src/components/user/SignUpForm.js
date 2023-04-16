@@ -74,11 +74,13 @@ const SignUpForm = ({ navigate }) => {
   const renderImageUploadForm = () => {
     return (
       <>
-        <div className="profile-photo">
+        <div className="profile-photo-container">
           <p className="profile-words">Upload a profile image: </p>
         
           <form onSubmit={handleImageUpload} encType="multipart/form-data">
-            <input className="button" type="file" name="image" onChange={handleImageChange}/>
+            <div>
+              <input className="button" type="file" name="image" onChange={handleImageChange}/>
+            </div>
             <input className="upload-button" type="submit" name="upload" value="Upload Image"/>
           </form>
         </div>
@@ -90,12 +92,13 @@ const SignUpForm = ({ navigate }) => {
     <>
       <Navbar/>
       <div className="main-container">
+
         <div className="container_1">
           <div className="signup-box">
             <h2>SIGN UP </h2>
 
             <div className="header">
-              <h1>Welcome, Earthling!</h1>
+              <div Style="height: 20px;"></div>
             </div>
 
             {/* LOGO */}
@@ -130,10 +133,11 @@ const SignUpForm = ({ navigate }) => {
             </form>
 
             {renderImageUploadForm()}
-
+            
           </div>
           <div className="separator"></div>
         </div>
+
       </div>
     </>
   );

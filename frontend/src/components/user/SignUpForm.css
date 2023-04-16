@@ -1,80 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 
+html {
+  height: 100%;
+}
+
  /* WHOLE PAGE EXCEPT THE NAVBAR */
 
- .main-container { 
+ .main-container {
   height: 100vh;
   width: 100%;
-  background: linear-gradient(30deg , rgba(238, 147, 82, .6), rgba(128, 0, 111, .6));
+  background: linear-gradient(30deg , rgb(238, 147, 82), rgb(128, 0, 111));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Montserrat', sans-serif;
  }
 
- /* CARD AT THE CENTER */
+ /* INNER MAIN BLOCK */
 
- .container_1 {
+.container_1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   width: 100%;
- }
+  top: -50px;
+  font-weight: bold;
+}
 
  /* FONTS */
 
- h2 {
+h2 {
   font-size: 22px;
   font-weight: bolder;
- }
+  
+}
 
- p {
+p {
   font-size: 12px;
   padding-top: 5px;
- }
+}
 
- div h1 {
+a {
+  color: rgb(177, 4, 169);
+  transition: color 0.5 ease;
+}
+
+a:hover {
+  color:white;
+}
+
+div h1 {
   font-size: 16px;
   font-weight: bolder;
   padding-top: 5px;
   padding-bottom: 20px;;
- }
+}
 
- .already-registered {
+.already-registered {
   font-size: 16px;
- }
+}
 
- .profile-words {
-  text-align: center;
- }
-
- .image-text {
+.image-text {
   padding-bottom: 10px;
- }
+}
 
  /* LOGO */
 
- .user-icon { 
-  background: white;
+.user-icon { 
+  background: rgb(238, 232, 232); 
   border-radius: 50%;
-  width: 100px;
-  height:100px;
+  width: 90px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: -50px;
- }
+}
 
- .user-icon {
+.user-icon {
    font-size: 50px;
-   color: rgb(52, 3, 82);
- }
+   color: rgb(20, 1, 32);
+}
 
- /* SIGNUP FORM AND BOX */
+ /* SIGNUP FORM BOX */
 
- .signup-box{
-  background: white;
-  padding: 85px 100px 50px 100px;
+.signup-box {
+  background: linear-gradient(rgb(59, 1, 104) 80%, rgba(24, 1, 42, 1));
+  color: white;
+  padding: 50px 100px 50px 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,56 +98,66 @@
   width: 400px;
   font-size: 14px;
   border-radius: 5px;
- }
+  height: 620px;
+}
 
- .signup{
+.signup-box:hover {
+  box-shadow: 2px 2px, 2px black;
+}
+
+ /* SIGNUP FORM ELEMENTS */
+
+.signup {
   width: 100%;
   border: none;
- }
-
- .form-group{
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  width: 100%;
- }
+  justify-content: center;
+}
 
- input[type="text"].form-control, input[type="password"].form-control{
+.form-group {
+  margin: 10px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+}
+
+ input[type="text"].form-control, input[type="password"].form-control {
   font-size: 16px;
   outline: none;
   width: 100%;
   border: 1px solid grey;
   border-radius: 2px;
   padding: 16px;
-  transition: all 0.3s ease;
- }
+  /* transition: all 0.3s ease; */
+}
 
- input[type="text"].form-control:hover, input[type="password"].form-control:hover{
-  border: 2px solid rgb(205, 70, 117);
- }
+input[type="text"].form-control:hover, input[type="password"].form-control:hover {
+  box-shadow: 0px 0px 4px rgb(197, 193, 193);
+}
 
- input[type="text"].form-control:focus, input[type="password"].form-control:focus{
+input[type="text"].form-control:focus, input[type="password"].form-control:focus {
   border: 2px solid rgb(128, 0, 111);
- }
+}
 
- input[type="text"].form-control:active, input[type="password"].form-control:active{
+input[type="text"].form-control:active, input[type="password"].form-control:active {
   border: 2px solid rgb(79, 41, 41);
- }
+} 
 
- label {
+label {
   display: flex;
   align-items: center;
   cursor: pointer;
- }
+}
 
- label input[type="checkbox"] {
+label input[type="checkbox"] {
   width: 20px;
   height: 10px;
   margin-right: 10px;
   cursor: pointer;
- }
+}
 
- div input[id='submit'] {
+div input[id='submit'] {
   outline: none;
   background: rgb(218, 130, 206);
   color: white;
@@ -142,23 +167,65 @@
   border: none;
   text-transform: uppercase;
   font-size: 16px;
-  font-weight: bolder;
+  font-weight: heavy;
   letter-spacing: 3px;
   cursor: pointer;
   transition: all 0.3s ease;
- }
+}
 
- div input[id='submit']:hover{
-  box-shadow: 5px 5px 5px rgb(197, 193, 193);
- }
+div input[id='submit']:hover {
+  box-shadow: 0px 0px 6px rgb(197, 193, 193);
+  color: yellow;
+}
 
- .upload-button {
-  margin: 0 0 10px 48px; 
-  padding: 5px;
- }
+/* PROFILE PHOTO FORM */
 
- .button {
+.profile-photo-container {
+  background-color: rgb(26, 2, 46);
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-words {
+  text-align: center;
+}
+
+.button {
   margin: 10px;
- }
+  background-color: aliceblue;
+  height: 30px;
+  border-radius: 2rem;
+  color: black
+}
 
+input[type="file"]::-webkit-file-upload-button {
+  /* visibility: hidden; */
+  
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background: rgb(218, 130, 206);
+  font-weight:900;
+  border-radius: 3rem;
+  border: none;
+}
 
+input[type="file"]::-webkit-file-upload-button:hover {
+  color: yellow;
+}
+
+.upload-button {
+  margin: 0 0 10px 100px; 
+  padding: 10px;
+  color: white;
+  background: rgb(218, 130, 206);
+  border: none;
+  font-weight: bold;
+  border-radius: 2rem;
+  
+}
+
+.upload-button:hover {
+  box-shadow: 0px 0px 3px rgb(197, 193, 193);
+  color: yellow;
+}
