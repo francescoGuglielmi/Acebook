@@ -13,7 +13,7 @@ const SignUpForm = ({ navigate }) => {
     event.preventDefault();
 
     fetch( '/users', {
-      method: 'post',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -22,7 +22,7 @@ const SignUpForm = ({ navigate }) => {
         email: email, 
         password: password,
         profilePicture: file
-       })
+      })
     })
     .then(response => {
       if (response.status === 201) {
@@ -54,7 +54,6 @@ const SignUpForm = ({ navigate }) => {
     const formData = new FormData();
     formData.append('profilePicture', file)
     
-
     try {
       const response = await fetch('users/upload-image', {
         method: 'POST',
@@ -79,7 +78,7 @@ const SignUpForm = ({ navigate }) => {
         
           <form onSubmit={handleImageUpload} encType="multipart/form-data">
             <div>
-              <input className="button" type="file" name="image" onChange={handleImageChange}/>
+              <input className="button" type="file" name="profilePicture" onChange={handleImageChange}/>
             </div>
             <input className="upload-button" type="submit" name="upload" value="Upload Image"/>
           </form>
@@ -92,16 +91,14 @@ const SignUpForm = ({ navigate }) => {
     <>
       <Navbar/>
       <div className="main-container">
-
         <div className="container_1">
           <div className="signup-box">
-            <h2>SIGN UP </h2>
+
+            <h2>SIGN UP</h2>
 
             <div className="header">
               <div Style="height: 20px;"></div>
             </div>
-
-            {/* LOGO */}
 
             <div className="user-icon">
               <div>&spades;</div>
@@ -132,15 +129,14 @@ const SignUpForm = ({ navigate }) => {
               </div>
             </form>
 
-            {renderImageUploadForm()}
+            {renderImageUploadForm()}            
             
           </div>
-          <div className="separator"></div>
         </div>
-
       </div>
     </>
   );
 }
+
 
 export default SignUpForm;

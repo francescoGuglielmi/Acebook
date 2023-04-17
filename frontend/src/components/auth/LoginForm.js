@@ -45,9 +45,14 @@ return (
 
     <div className="main-container">
       <div className="container_1">
-        <div className="login-box">  
+        <div className="login-box"> 
+
           <div className="header">
-            <h1>Login</h1>
+            <h2>LOGIN</h2>
+          </div>
+
+          <div className="header">
+            <div Style="height: 20px;"></div>
           </div>
 
           <div className="user-icon"> 
@@ -77,6 +82,7 @@ return (
               <p>Not registered? <a href ="signup">Sign Up</a></p>
             </div>
           </form>
+
         </div>
       </div>
     </div>
